@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\servico;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('bootstrapVite');
+
+    $primeiroRegistro= new servico;
+    $primeiroRegistro -> nome='encanador';
+    $primeiroRegistro -> preco='R$ 250,00';
+    $primeiroRegistro -> save();
+
+    return view('index');
 });
